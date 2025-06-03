@@ -5,7 +5,7 @@ import { SignedImage } from '@/lib/types'
 
 export const getSignedImages = async (): Promise<SignedImage[]> => {
     const { data: files, error } = await supabase.storage.from('photos').list('', {
-        limit: 10,
+        limit: 50,
         offset: 0,
     })
 
