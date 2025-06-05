@@ -13,14 +13,11 @@ export default async function Home() {
   const images = await getSignedImages()
 
   return (
-    <div className="text-white text-center w-full ">
-      We're going to list the images here
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+    <div className="text-white text-center w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-8 h-max">
         {images?.map((img) => (
-          <div key={img.name} className="rounded shadow">
+          <div key={img.name} className="">
             <ImagePreview {...img} />
-
           </div>
         ))}
       </div>
