@@ -1,11 +1,11 @@
 'use server'
 
 import { supabase } from '@/lib/supabaseClient'
-import { SignedImage } from '@/lib/types'
+import { SignedImage, BlobImage } from '@/lib/types'
 
 export const getSignedImages = async (): Promise<SignedImage[]> => {
     const { data: files, error } = await supabase.storage.from('photos').list('', {
-        limit: 50,
+        limit: 25,
         offset: 0,
     })
 
@@ -13,6 +13,7 @@ export const getSignedImages = async (): Promise<SignedImage[]> => {
         console.error("Error listing files:", error)
         return []
     }
+
 
     const signedUrls = await Promise.all(
         files.map(async (file) => {
@@ -23,3 +24,4 @@ export const getSignedImages = async (): Promise<SignedImage[]> => {
 
     return signedUrls.filter(Boolean) as SignedImage[]
 }
+

@@ -6,6 +6,7 @@ import BackButton from "@/components/back-button"
 
 export default async function ImageView({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
+    console.log(id)
     const { data, error } = await supabase.storage.from('photos').createSignedUrl(id, 60 * 60)
     if (error) {
         return (
@@ -34,7 +35,7 @@ export default async function ImageView({ params }: { params: Promise<{ id: stri
 
             </nav>
             <div className="w-full h-screen p-8 pt-16 flex justify-center align-middle">
-                <BigImage url={data.signedUrl} />
+                <BigImage url={data.signedUrl} id={id} />
             </div>
 
 
