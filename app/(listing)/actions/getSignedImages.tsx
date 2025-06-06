@@ -3,10 +3,10 @@
 import { supabase } from '@/lib/supabaseClient'
 import { SignedImage, BlobImage } from '@/lib/types'
 
-export const getSignedImages = async (): Promise<SignedImage[]> => {
+export const getSignedImages = async (page: number): Promise<SignedImage[]> => {
     const { data: files, error } = await supabase.storage.from('photos').list('', {
-        limit: 25,
-        offset: 0,
+        limit: 20,
+        offset: (page * 20) - 20,
     })
 
     if (error || !files) {
