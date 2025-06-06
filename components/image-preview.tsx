@@ -39,7 +39,7 @@ const ImagePreview = (props: SignedImage) => {
 
     const onHoverHandler = async () => {
         //console.log(`The page for ${props.name} has been prefetched`)
-
+        router.prefetch(`/${props.name}`);
     }
     const onClickHandler = () => {
         router.push(`/${props.name}`)
@@ -58,7 +58,7 @@ const ImagePreview = (props: SignedImage) => {
             />
         </div> :
             <div className="flex justify-center align-middle w-full h-50 items-center">
-                <div className="loader border" />
+                <div className="loader" />
             </div>
 
         }
