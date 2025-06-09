@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ModeToggle } from "./ui/mode-toggle";
 import UploadButton from "./upload-button";
 
-const NavBar = () => {
+const NavBar = (props : { isUpload : boolean }) => {
     return (
         <section className="w-full flex justify-center">
             <div className="w-full xl:w-3/4 flex items-center justify-between mt-8 md:mt-16 mb-12 p-8">
@@ -12,7 +12,7 @@ const NavBar = () => {
                     </h1>
                 </Link>
                 <nav className="flex align-middle w-max justify-between gap-8 ">
-                    <UploadButton />
+                    {!props.isUpload && <UploadButton /> }
                     <ModeToggle />
                 </nav >
 

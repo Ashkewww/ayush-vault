@@ -39,10 +39,10 @@ const ImagePreview = (props: SignedImage) => {
 
     const onHoverHandler = async () => {
         //console.log(`The page for ${props.name} has been prefetched`)
-        router.prefetch(`/${props.name}`);
+        router.prefetch(`/image/${props.name}`);
     }
     const onClickHandler = () => {
-        router.push(`/${props.name}`)
+        router.push(`/image/${props.name}`)
     }
 
     return (<>
