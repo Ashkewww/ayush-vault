@@ -33,13 +33,21 @@ export default function BigImage(props: any) {
         asyncFunction()
     }, [])
     return (<>
-        {!loading ? <div className="flex px-4 align-middle justify-center relative w-5/6 " >
-            <Image src={imgURL} alt={"url"} fill={true} objectFit="contain" />
-        </div> :
-            <div className="flex justify-center items-center align-middle">
-                <div className="loader" />
-            </div>
-        }
+        <div className="flex items-center justify-center w-full">
+            {!loading ?
+                <Image
+                    src={imgURL}
+                    alt={"url"}
+                    width={2000}
+                    height={512}
+                    className="object-contain max-w-full max-h-full"
+                />
+                :
+                <div className="flex justify-center items-center align-middle">
+                    <div className="loader" />
+                </div>
+            }
+        </div >
     </>
 
     )

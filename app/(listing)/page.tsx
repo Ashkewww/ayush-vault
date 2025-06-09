@@ -39,11 +39,11 @@ export default function Home() {
             <PaginationPrevious href={prevPageUrl} />
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
+            <PaginationLink href="#">{page ? Number.parseInt(page) : 1}</PaginationLink>
           </PaginationItem>
-          <PaginationItem>
+          {/* <PaginationItem>
             <PaginationEllipsis />
-          </PaginationItem>
+          </PaginationItem> */}
           <PaginationItem>
             <PaginationNext href={nextPageUrl} />
           </PaginationItem>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ModeToggle } from "./ui/mode-toggle";
+import UploadButton from "./upload-button";
 
 const NavBar = () => {
     return (
@@ -10,7 +11,8 @@ const NavBar = () => {
                         Ayush's Archive
                     </h1>
                 </Link>
-                <nav className="flex align-middle w-max justify-between gap-4 ">
+                <nav className="flex align-middle w-max justify-between gap-8 ">
+                    <UploadButton />
                     <ModeToggle />
                 </nav >
 

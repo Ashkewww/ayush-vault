@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import './listing.css'
 
 const ImageList = (props: { page: number }) => {
-    const [loading, setLoading] = useState<boolean>(true);
     const [images, setImages] = useState<SignedImage[]>([]);
     async function asyncFunction() {
         setImages(await getSignedImages(props.page));
@@ -14,13 +13,12 @@ const ImageList = (props: { page: number }) => {
 
     useEffect(() => {
         asyncFunction();
-        setLoading(false)
     }, [props.page])
 
 
 
     return (<>
-        {!loading ?
+        {images.length > 0 ?
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-8 w-full xl:w-3/4 border">
                 {images?.map((img) => (
                     <div key={img.name} className="">
